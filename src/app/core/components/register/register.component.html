@@ -1,0 +1,48 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstname">Firstname : </label>
+    <input type="text" formControlName="firstname" id="firstname">
+  </div>
+  <p class="error"
+     *ngIf="registerForm.get('firstname')?.hasError('required') && registerForm.get('firstname')?.touched">Firstname
+    required</p>
+  <p class="error"
+     *ngIf="registerForm.get('firstname')?.hasError('required') && registerForm.get('firstname')?.touched">Firstname max
+    50 char</p>
+  <div>
+    <label for="lastname">Lastname : </label>
+    <input type="text" formControlName="lastname" id="lastname">
+  </div>
+  <p class="error" *ngIf="registerForm.get('lastname')?.hasError('required') && registerForm.get('lastname')?.touched">
+    Lastname required</p>
+  <p class="error" *ngIf="registerForm.get('lastname')?.hasError('required') && registerForm.get('lastname')?.touched">
+    Lastname max 50 char</p>
+  <div>
+    <label for="email">Email : </label>
+    <input type="email" formControlName="email" id="email">
+  </div>
+  <p class="error" *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">Email
+    required</p>
+  <p class="error" *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">Email
+    max 150 char</p>
+  <p class="error" *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched">Email
+    not valid
+  </p>
+  <div>
+    <label for="password">Password : </label>
+    <input type="password" formControlName="password" id="password">
+  </div>
+  <p class="error" *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
+    Password required</p>
+  <div>
+    <label for="gender">Gender : </label>
+    <select formControlName="gender" id="gender">
+      <option value="MALE">Male</option>
+      <option value="FEMALE">Female</option>
+      <option value="OTHER">Other</option>
+    </select>
+  </div>
+  <p class="error" *ngIf="registerForm.get('gender')?.hasError('required') && registerForm.get('gender')?.touched">
+    Gender required</p>
+  <button type="submit">Register</button>
+</form>

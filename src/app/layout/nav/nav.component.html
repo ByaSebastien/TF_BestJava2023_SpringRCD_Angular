@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let link of nav">
+    <a *ngIf="link.url" [routerLink]="link.url">{{link.title}}</a>
+  </li>
+  <li *ngIf="currentUser">
+    <p>{{currentUser.user.firstname}}</p>
+  </li>
+  <li *ngIf="currentUser">
+    <a (click)="logout()">Logout</a>
+  </li>
+</ul>
